@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+div input {
+    width: 50px; 
+    height:20px; 
+	margin-left: 400px;
+    
+}
+
+
+
+li1 {
+    float: right;
+}
+li a {
+    display: inline-block;
+    color: white;
+	margin-left: 40px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li1 a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.logo {
+    display: inline-block;
+    vertical-align: top;
+	float: left;
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 15px;    /* if you want it vertically middle of the navbar. */
+}
+
+.one{
+background-color:blue; 
+    color:black; 
+    padding:10px; 
+    display:inline-block; 
+    width: 1280px; 
+    height:100px;  
+    padding-top: 5px; 
+    margin-top:8px; 
+    margin-bottom: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    float: center;
+}
+
+
+.five{
+    background-color:white; 
+    color:black; 
+    padding:10px; 
+    display:inline-block; 
+    width: 340px; 
+    height:300px;  
+    padding-top: 15px; 
+    margin-top:8px; 
+    margin-bottom: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.three{
+ background-color:white; 
+    color:black; 
+    padding:10px; 
+    display:inline-block; 
+    width: 340px; 
+    height:150px;  
+    padding-top: 15px; 
+    margin-top:8px; 
+    margin-bottom: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.four{
+   background-color:white; 
+    color:black; 
+    padding:10px; 
+    display:inline-block; 
+    width: 900px; 
+    height:1400px;  
+    padding-top: 15px; 
+    margin-top:8px; 
+    margin-bottom: 15px;
+    margin-right: 15px;
+    
+    float:right;
+}
+
+.six{
+   background-color:white; 
+    color:black; 
+    padding:10px; 
+    display:inline-block; 
+    width: 340px; 
+    height:850px;  
+    padding-top: 15px; 
+    margin-top:8px; 
+    margin-bottom: 15px;
+    margin-right: 15px;
+    margin-left: 15px; 
+}
+
+li a:hover {
+    background-color: red;
+}
+div button:hover {
+    background-color: red;
+}
+</style>
+</head>
+<body style="background-color:lightgrey;">
+<script>
+function loadXMLDoc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      myFunction(xmlhttp);
+    }
+  };
+  xmlhttp.open("GET", "cd_catalog.xml", true);
+  xmlhttp.send();
+}
+function myFunction(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+  var table="<tr><th>Artist</th><th>Title</th></tr>";
+  var x = xmlDoc.getElementsByTagName("CD");
+  for (i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("demo").innerHTML = table;
+}
+</script>
+<ul>
+	<img class="logo" src="k.png">
+	<li><a class="active" href="#home">RAKIYA</a></li>
+	<li><a class="active" href="#home">Jobs</a></li>
+	<li><a href="#news">Companies</a></li>
+	<li><a href="#contact">Courses</a></li>
+	
+	<li1><a class="active" href="#home">register cv</a></li1>
+	<li1><a class="active" href="#home">Sign in</a></li1>
+	<li1><a href="#news">Post a job</a></li1>
+
+  
+  
+</ul>
+
+
+<div class="one">
+<div>FIND A JOB<input type="text" name="job"><input type="text" name="area"> <button type="button" onclick="loadXMLDoc()">SEARCH REKIYA</button><br></div>
+<h2></h2>
+
+<button type="button" onclick="loadXMLDoc()">Get my CD collection</button>
+
+<br><br>
+<table id="demo"></table>
+
+<p></p>
+<p></p>
+
+
+</div> 
+
+<div class="three">
+
+<h2></h2>
+
+
+<p></p>
+
+</div> 
+
+
+<div class="four">
+
+<h2></h2>
+
+<p></p>
+<p></p>
+
+</div> 
+
+<div class ="five">
+
+<h2></h2>
+
+<p></p>
+<p></p>
+
+</div> 
+
+<div class ="six">
+
+<h2></h2>
+
+<p></p>
+<p></p>
+
+</div> 
+
+
+
+</body>
+</html>
+
